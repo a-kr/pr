@@ -32,6 +32,8 @@ pr someproject
 bind P display-popup -E -E "pr --interactive"
 ```
 
+![pr внутри tmux](img/pr-in-tmux.png)
+
 Сборка:
 ```
 make
