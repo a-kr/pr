@@ -66,6 +66,10 @@ import (
 	"github.com/rodaine/table"
 )
 
+const (
+	VERSION = "v0.1"
+)
+
 var (
 	fAllowCreateDir  = flag.Bool("c", false, "create project dir if not exists")
 	fTempProject     = flag.Bool("T", false, "create temporary project /tmp/tN")
@@ -74,6 +78,7 @@ var (
 	fShowAllSessions = flag.Bool("a", false, "show all sessions (including saved and inactive)")
 	fInteractive     = flag.Bool("interactive", false, "interactive mode for using with tmux: show all sessions then allow user to choose one of them or exit")
 	fTodo            = new(bool)
+	fVersion         = flag.Bool("version", false, "show pr version")
 )
 
 func init() {
@@ -581,6 +586,11 @@ func printSessions(sessions []TmuxSession, allColumns bool) {
 
 func main() {
 	flag.Parse()
+
+	if *fVersion {
+		fmt.Printf("%s\n", VERSION)
+		return
+	}
 
 	if *fTodo {
 		openTodoEditor()
