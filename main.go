@@ -496,7 +496,7 @@ func ChangeSession(sessions []TmuxSession, sessionId string, allowCreateDir bool
 		}
 	}
 	if sessionName == "" {
-		log.Fatalf("switching to non-path project names is not implemented yet") // TODO
+		log.Fatalf("directory ~/%s* does not exist", sessionId)
 	}
 
 	// подберём имя сессии с суффиксом во избежание коллизий
