@@ -622,7 +622,11 @@ func main() {
 		if line == "" {
 			return
 		}
-		sessionId = line
+		if line == "-T" {
+			sessionId = createTemporaryProject()
+		} else {
+			sessionId = line
+		}
 	}
 
 	if sessionId != "" {
