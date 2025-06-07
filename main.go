@@ -495,6 +495,9 @@ func ChangeSession(sessions []TmuxSession, sessionId string, allowCreateDir bool
 			}
 		}
 	}
+	if strings.Contains(sessionName, ".") {
+		sessionName = strings.Replace(sessionName, ".", "-", -1)
+	}
 	if sessionName == "" {
 		log.Fatalf("directory ~/%s* does not exist", sessionId)
 	}
